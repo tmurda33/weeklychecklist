@@ -2,6 +2,13 @@ h1 {
   text-align: center;
   font-size: 32px;
   margin-top: 32px;
+  color: white;
+}
+h2 {
+  color: white;
+}
+body {
+  background-image: url(Sunrise.jpg);
 }
 textarea {
   text-align: center;
@@ -47,6 +54,7 @@ textarea {
 }
 .calendar {
   border: 1px solid black;
+  background-color: white;
 }
 .box.active img {
   width: 33%;

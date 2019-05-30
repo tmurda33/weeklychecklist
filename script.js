@@ -59,7 +59,7 @@ var currentState = {
   checkBoxes: "",
   weeklyItems: []
 };
-$("#currentWeek").html(week);
+$("#currentWeek").html(getDateRangeOfWeek(week, 2019));
 if (localStorage.getItem(week)) {
   var retrieveData = JSON.parse(localStorage.getItem(week));
   currentState = retrieveData;
@@ -111,7 +111,7 @@ $(".btn-danger").click(function() {
 });
 $("#previous").click(function() {
   week--;
-  $("#currentWeek").html(week);
+  $("#currentWeek").html(getDateRangeOfWeek(week, 2019));
   if (localStorage.getItem(week) === null) {
     var retrieveData = {
       dailyItems: ["", "", "", "", "", "", "", ""],
@@ -133,6 +133,7 @@ $("#previous").click(function() {
 });
 $("#next").click(function() {
   week++;
+  $("#currentWeek").html(getDateRangeOfWeek(week, 2019));
   if (localStorage.getItem(week) === null) {
     var retrieveData = {
       dailyItems: ["", "", "", "", "", "", "", ""],
@@ -175,4 +176,16 @@ function savingFunction() {
   console.log(currentState.weeklyItems);
   currentState.checkBoxes = $(".calendar").html();
   localStorage.setItem(week, JSON.stringify(currentState));
+}
+
+function getDateRangeOfWeek(weekNo, y) {
+  var d1, numOfdaysPastSinceLastMonday, rangeIsFrom, rangeIsTo;
+  d1 = new Date("" + y + "");
+  numOfdaysPastSinceLastMonday = d1.getDay() - 1;
+  d1.setDate(d1.getDate() - numOfdaysPastSinceLastMonday);
+  d1.setDate(d1.getDate() + 7 * (weekNo - d1.getWeek()));
+  rangeIsFrom = d1.getMonth() + 1 + "-" + d1.getDate() + "-" + d1.getFullYear();
+  d1.setDate(d1.getDate() + 6);
+  rangeIsTo = d1.getMonth() + 1 + "-" + d1.getDate() + "-" + d1.getFullYear();
+  return rangeIsFrom + " to " + rangeIsTo;
 }
