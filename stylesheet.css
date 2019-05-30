@@ -1,0 +1,64 @@
+h1 {
+  text-align: center;
+  font-size: 32px;
+  margin-top: 32px;
+}
+textarea {
+  text-align: center;
+  vertical-align: center;
+}
+.newWeeklyItem .box {
+  border: 1px solid black;
+  width: 12.5%;
+  height: 64px;
+  text-align: center;
+}
+.headings .box {
+  border: 1px solid black;
+  width: 12.5%;
+  height: 32px;
+  text-align: center;
+}
+.week,
+.headings,
+.newWeeklyItem {
+  display: flex;
+}
+textarea {
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
+.customtext .box {
+  border: 1px solid black;
+  width: 12.5%;
+  height: 96px;
+  text-align: center;
+}
+.checklistName {
+  text-align: center;
+  vertical-align: middle;
+  line-height: 96px;
+}
+.newItem {
+  text-align: center;
+  vertical-align: middle;
+}
+.calendar {
+  border: 1px solid black;
+}
+.box.active img {
+  width: 33%;
+  display: block;
+  margin: 12px auto;
+}
+.box img {
+  display: none;
+}
+
+.newItem input {
+  width: 100%;
+  border: none;
+  display: none;
+}
